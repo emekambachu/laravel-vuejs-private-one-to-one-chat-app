@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChatMessage extends Model
 {
-    use HasFactory;
+    public function chatConversations(){
+        return $this->hasMany(ChatConversation::class);
+    }
 }

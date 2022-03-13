@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChatSession extends Model
 {
-    use HasFactory;
+    public function chatConversations(){
+        return $this->hasManyThrough(ChatConversation::class, ChatMessage::class);
+    }
+
+    public function chatMessages(){
+        return $this->hasMany(ChatMessage::class);
+    }
 }
